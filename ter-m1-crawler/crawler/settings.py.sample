@@ -1,0 +1,26 @@
+from os.path import expanduser
+# Scrapy settings for crawler project
+#
+# For simplicity, this file contains only the most important settings by
+# default. All the other settings are documented here:
+#
+#     http://doc.scrapy.org/en/latest/topics/settings.html
+#
+
+BOT_NAME = 'crawler'
+
+SPIDER_MODULES = ['crawler.spiders']
+NEWSPIDER_MODULE = 'crawler.spiders'
+ITEM_PIPELINES = {'crawler.pipelines.CrawlerPipeline':'crawler.pipelines.CrawlerPipeline'}
+REDIRECT_ENABLED = True
+DNSCACHE_ENABLED = True
+USER_AGENT = "Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.1453.93 Safari/537.36"
+
+DOWNLOADER_MIDDLEWARES = {'crawler.middlewares.DupFilterMiddleware':390}
+
+DB_USER = 'root'
+DB_PASSWD = ''
+DB_DATABASE = 'projet_ter'
+DB_HOST = 'localhost'
+
+PDF_DIR = "/opt/TerPdf_dev/"
